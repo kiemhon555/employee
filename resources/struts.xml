@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+   "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+   "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<constant name="struts.devMode" value="true" />
+	<constant name="struts.action.excludePattern" value="/rest/?.*" />
+	<package name="test" extends="struts-default">
+
+		<action name="addEmployee" class="employeeAction" method="addEmployee">
+			<result name="success" type="redirect">/index.jsp</result>
+			<result name="input">/add.jsp</result>
+		</action>
+		<action name="editEmployee" class="employeeAction" method="editEmployee">
+			<result name="success">/edit.jsp</result>
+		</action>
+		<action name="updateEmployee" class="employeeAction" method="updateEmployee">
+			<result name="success" type="redirect">/index.jsp</result>
+			<result name="input">/edit.jsp</result>
+		</action>
+		<action name="deleteEmployee" class="employeeAction" method="deleteEmployee">
+			<result name="success" type="redirect">/index.jsp</result>
+		</action>
+		<action name="listEmployees" class="employeeAction" method="listEmployees">
+			<result name="success">/list.jsp</result>
+		</action>
+		<action name="searchEmployee" class="employeeSearchAction"
+			method="searchEmployee">
+			<result name="success">/result.jsp</result>
+		</action>
+		<action name="searchAutocomplete" class="employeeSearchAction"
+			method="searchAutocomplete">
+			<result name="success">/result.jsp</result>
+		</action>
+		<action name="paginationEmployee" class="employeeSearchAction"
+			method="paginationEmployee">
+			<result name="success">/result.jsp</result>
+		</action>
+
+		<action name="addPrepareSkillset" class="skillsetAction"
+			method="addPrepareSkillset">
+			<result name="success">/skillsetadd.jsp</result>
+		</action>
+		<action name="addSkillset" class="skillsetAction" method="addSkillset">
+			<result name="success" type="redirect">editEmployee</result>
+			<result name="input">/skillsetadd.jsp</result>
+		</action>
+		<action name="updateSkillset" class="skillsetAction" method="updateSkillset">
+			<result name="success" type="redirect">editEmployee</result>
+			<result name="input">/skillsetedit.jsp</result>
+		</action>
+		<action name="editSkillset" class="skillsetAction" method="editSkillset">
+			<result name="success">/skillsetedit.jsp</result>
+		</action>
+		<action name="deleteSkillset" class="skillsetAction" method="deleteSkillset">
+			<result name="success" type="redirect">editEmployee</result>
+		</action>
+
+		<action name="addPrepareCareer" class="careerAction" method="addPrepareCareer">
+			<result name="success">/careeradd.jsp</result>
+		</action>
+		<action name="addCareer" class="careerAction" method="addCareer">
+			<result name="success" type="redirect">editEmployee</result>
+			<result name="input">/careeradd.jsp</result>
+		</action>
+		<action name="updateCareer" class="careerAction" method="updateCareer">
+			<result name="success" type="redirect">editEmployee</result>
+			<result name="input">/careeredit.jsp</result>
+		</action>
+		<action name="editCareer" class="careerAction" method="editCareer">
+			<result name="success">/careeredit.jsp</result>
+		</action>
+		<action name="deleteCareer" class="careerAction" method="deleteCareer">
+			<result name="success" type="redirect">editEmployee</result>
+		</action>
+	</package>
+</struts>

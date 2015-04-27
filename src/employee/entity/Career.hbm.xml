@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="employee.entity.Career" table="career">
+		<id name="id" type="int" column="id">
+			<generator class="native" />
+		</id>
+		<property name="position" column="job_position" type="string" />
+		<property name="description" column="work_description" type="string" />
+		<property name="project" column="worked_project" type="string" />
+		<property name="technology" column="technology_used" type="string" />
+		<property name="platform" column="platform" type="string" />
+		<property name="startTime" column="startTime" type="date" />
+		<property name="endTime" column="endTime" type="date" />
+		<many-to-one name="employee" class="employee.entity.Employee"
+			fetch="select">
+			<column name="employee_id" not-null="true" />
+		</many-to-one>
+	</class>
+</hibernate-mapping>

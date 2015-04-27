@@ -1,0 +1,24 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.3//EN"
+        "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+<validators>
+	<field name="technology">
+		<field-validator type="requiredstring">
+			<message>You must enter a technology</message>
+		</field-validator>
+	</field>
+
+	<field name="experiencedYears">
+		<field-validator type="int">
+			<param name="min">0</param>
+			<message>
+				Years must be a positive number
+			</message>
+		</field-validator>
+	</field>
+
+	<field name="dateInput">
+		<field-validator type="requiredstring">
+			<message>You must choose date</message>
+		</field-validator>
+	</field>
+</validators>

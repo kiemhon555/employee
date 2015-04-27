@@ -1,0 +1,39 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.3//EN"
+        "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+<validators>
+	<field name="position">
+		<field-validator type="requiredstring">
+			<message>You must enter position</message>
+		</field-validator>
+	</field>
+	<field name="description">
+		<field-validator type="requiredstring">
+			<message>You must enter description</message>
+		</field-validator>
+	</field>
+	<field name="project">
+		<field-validator type="requiredstring">
+			<message>You must enter project</message>
+		</field-validator>
+	</field>
+	<field name="technology">
+		<field-validator type="requiredstring">
+			<message>You must enter a technology</message>
+		</field-validator>
+	</field>
+	<field name="platform">
+		<field-validator type="requiredstring">
+			<message>You must enter platform</message>
+		</field-validator>
+	</field>
+	<field name="startDate">
+		<field-validator type="requiredstring">
+			<message>You must choose start date</message>
+		</field-validator>
+	</field>
+	<field name="endDate">
+		<field-validator type="requiredstring">
+			<message>You must choose end date</message>
+		</field-validator>
+	</field>
+</validators>

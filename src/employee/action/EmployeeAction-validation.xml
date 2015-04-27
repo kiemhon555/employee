@@ -1,0 +1,26 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.3//EN"
+        "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+<validators>
+	<field name="fullname">
+		<field-validator type="requiredstring">
+			<message>You must enter a name</message>
+		</field-validator>
+	</field>
+	<field name="email">
+		<field-validator type="requiredstring">
+			<message>You must enter an e-mail address</message>
+		</field-validator>
+		<field-validator type="email">
+			<message>You must enter a valid e-mail address</message>
+		</field-validator>
+	</field>
+	<field name="phone">
+		<field-validator type="requiredstring">
+			<message>You must enter phone number</message>
+		</field-validator>
+		<field-validator type="regex">
+			<param name="regex"><![CDATA[^\+?[0-9\-]+\*?$]]></param>
+			<message>Please enter a valid phone number</message>
+		</field-validator>
+	</field>
+</validators>
