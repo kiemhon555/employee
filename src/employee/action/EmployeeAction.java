@@ -1,11 +1,17 @@
 package employee.action;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.commons.io.FileUtils;
+import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.interceptor.validation.SkipValidation;
 
-import com.opensymphony.xwork2.Action;
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
@@ -18,6 +24,15 @@ public class EmployeeAction extends ActionSupport implements
 	private Employee employee;
 	private List<Employee> employeeList;
 	private EmployeeManager employeeManager;
+
+	private File fileUpload;
+	private String fileUploadContentType;
+	private String fileUploadFileName;
+
+	private String filePath;
+	private File fileToCreate;
+
+	private HttpServletRequest servletRequest;
 
 	@Override
 	public Employee getModel() {
@@ -48,7 +63,33 @@ public class EmployeeAction extends ActionSupport implements
 		this.employeeManager = employeeManager;
 	}
 
+	public File getFileUpload() {
+		return fileUpload;
+	}
+
+	public void setFileUpload(File fileUpload) {
+		this.fileUpload = fileUpload;
+	}
+
+	public String getFileUploadContentType() {
+		return fileUploadContentType;
+	}
+
+	public void setFileUploadContentType(String fileUploadContentType) {
+		this.fileUploadContentType = fileUploadContentType;
+	}
+
+	public String getFileUploadFileName() {
+		return fileUploadFileName;
+	}
+
+	public void setFileUploadFileName(String fileUploadFileName) {
+		this.fileUploadFileName = fileUploadFileName;
+	}
+
 	public String addEmployee() {
+		createFile();
+		employee.setImageUrl("images/" + fileUploadFileName);
 		employeeManager.addEmployee(employee);
 		return "success";
 	}
@@ -60,6 +101,8 @@ public class EmployeeAction extends ActionSupport implements
 	}
 
 	public String updateEmployee() {
+		createFile();
+		employee.setImageUrl("images/" + fileUploadFileName);
 		employeeManager.updateEmployee(employee);
 		return "success";
 	}
@@ -76,4 +119,17 @@ public class EmployeeAction extends ActionSupport implements
 		return "success";
 	}
 
+	private void createFile() {
+		servletRequest = (HttpServletRequest) ActionContext.getContext().get(
+				ServletActionContext.HTTP_REQUEST);
+		filePath = servletRequest.getSession().getServletContext()
+				.getRealPath("/")
+				+ "images";
+		fileToCreate = new File(filePath, this.fileUploadFileName);
+		try {
+			FileUtils.copyFile(this.fileUpload, fileToCreate);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 }

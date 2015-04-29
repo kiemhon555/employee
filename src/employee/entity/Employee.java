@@ -8,6 +8,7 @@ public class Employee {
 	private String fullname;
 	private String email;
 	private String phone;
+	private String imageUrl;
 	private Set<Skillset> skillsetList;
 	private Set<Career> careerList;
 
@@ -41,6 +42,14 @@ public class Employee {
 
 	public void setPhone(String phone) {
 		this.phone = phone;
+	}
+
+	public String getImageUrl() {
+		return imageUrl;
+	}
+
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
 	}
 
 	public Set<Skillset> getSkillsetList() {

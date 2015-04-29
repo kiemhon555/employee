@@ -5,9 +5,15 @@
 <struts>
 	<constant name="struts.devMode" value="true" />
 	<constant name="struts.action.excludePattern" value="/rest/?.*" />
+	<constant name="struts.multipart.maxSize" value="1000000" />
 	<package name="test" extends="struts-default">
 
 		<action name="addEmployee" class="employeeAction" method="addEmployee">
+			<interceptor-ref name="exception" />
+			<interceptor-ref name="i18n" />
+			<interceptor-ref name="fileUpload">
+				<param name="allowedTypes">image/png,image/gif,image/jpeg</param>
+			</interceptor-ref>
 			<result name="success" type="redirect">/index.jsp</result>
 			<result name="input">/add.jsp</result>
 		</action>

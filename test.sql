@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 23, 2015 at 08:38 AM
+-- Generation Time: Apr 29, 2015 at 06:33 AM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -59,25 +59,30 @@ CREATE TABLE IF NOT EXISTS `employee` (
 `id` int(11) NOT NULL,
   `fullname` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `email` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `phone` varchar(15) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  `phone` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
+  `imageUrl` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `employee`
 --
 
-INSERT INTO `employee` (`id`, `fullname`, `email`, `phone`) VALUES
-(1, 'test employee', 'test@gmail.com', '123456'),
-(2, 'checked12', 'chk@mail.com.jp', '013579'),
-(3, 'hello', 'hi@mail.com', '12345'),
-(4, 'final', 'final@hmail.com', '1234567890'),
-(5, 'last', 'last@desmail.com', '12345'),
-(15, 'msn', 'noname_@', '12345'),
-(18, 'Test New', 't@mail.com', '126'),
-(21, 'hgrty', 'yhrt', 'hrtghrtf'),
-(22, 'testsearch', 'search@gmail', '12345'),
-(23, 'newcomer', 'new@mail.com', '12345-6708'),
-(24, 'yay', 'y@mail.com', '09-0123-56');
+INSERT INTO `employee` (`id`, `fullname`, `email`, `phone`, `imageUrl`) VALUES
+(1, 'test employee', 'test@gmail.com', '123456', 'images/grey-wolf_565_600x450.jpg'),
+(2, 'checked12', 'chk@mail.com.jp', '013579', ''),
+(3, 'hello', 'hi@mail.com', '12345', ''),
+(4, 'final', 'final@hmail.com', '1234567890', ''),
+(5, 'last', 'last@desmail.com', '12345', ''),
+(15, 'msn', 'noname_@', '12345', ''),
+(18, 'Test New', 't@mail.com', '126', ''),
+(21, 'hgrty', 'yhrt', 'hrtghrtf', ''),
+(22, 'testsearch', 'search@gmail', '12345', ''),
+(23, 'newcomer', 'new@mail.com', '12345-6708', ''),
+(24, 'yay', 'y@mail.com', '09-0123-56', ''),
+(25, 'checked12', 'chk@mail.com.jp', '013579', ''),
+(26, 'new', 'mail@mail.com', '2345', ''),
+(27, 'te', 'h@mail.com', '123', ''),
+(28, 'testImage', 'image@mail.com', '12345', 'images/love-bird.jpg');
 
 -- --------------------------------------------------------
 
@@ -91,7 +96,7 @@ CREATE TABLE IF NOT EXISTS `skillset` (
   `experiencedYears` int(11) NOT NULL,
   `recentDate` date NOT NULL,
   `employee_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `skillset`
@@ -111,7 +116,8 @@ INSERT INTO `skillset` (`id`, `technology`, `experiencedYears`, `recentDate`, `e
 (31, 'Java Swing', 1, '2013-11-20', 3),
 (37, 'chk', 1, '2015-04-08', 3),
 (38, 'jk', 2, '2015-04-07', 24),
-(39, 'non', 2, '2015-04-01', 24);
+(39, 'non', 2, '2015-04-01', 24),
+(40, 'test', 0, '2015-04-09', 2);
 
 --
 -- Indexes for dumped tables
@@ -148,12 +154,12 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
 -- AUTO_INCREMENT for table `employee`
 --
 ALTER TABLE `employee`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=25;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=29;
 --
 -- AUTO_INCREMENT for table `skillset`
 --
 ALTER TABLE `skillset`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=40;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=41;
 --
 -- Constraints for dumped tables
 --

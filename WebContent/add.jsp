@@ -8,10 +8,11 @@
 <title>Add new Employee</title>
 </head>
 <body>
-	<s:form action="addEmployee" method="post">
+	<s:form action="addEmployee" method="post" enctype="multipart/form-data">
 		<s:textfield name="fullname" label="Fullname" />
 		<s:textfield name="email" label="Email" />
 		<s:textfield name="phone" label="Phone" />
+		<s:file name="fileUpload" label="Select Image" />
 		<s:submit value="Add Employee" />
 	</s:form>
 </body>

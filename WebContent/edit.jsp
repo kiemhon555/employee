@@ -10,11 +10,17 @@
 <body>
 	<s:push value="employee">
 		<h3>Information</h3>
-		<s:form action="updateEmployee" method="post">
+		<s:form action="updateEmployee" method="post"
+			enctype="multipart/form-data">
 			<s:hidden name="id" />
 			<s:textfield name="fullname" label="Fullname" />
 			<s:textfield name="email" label="Email" />
 			<s:textfield name="phone" label="Phone" />
+			<s:file name="fileUpload" label="Select Image" />
+			<tr>
+				<td colspan="2"><img alt=""
+					src="<s:property value="imageUrl" />" /></td>
+			</tr>
 			<s:submit value="Update Employee" />
 		</s:form>
 		<hr />
