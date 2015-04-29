@@ -8,13 +8,20 @@
 	<constant name="struts.multipart.maxSize" value="1000000" />
 	<package name="test" extends="struts-default">
 
+		<action name="login">
+			<result>login.jsp</result>
+		</action>
+		<action name="admin">
+			<result>employee.jsp</result>
+		</action>
+
 		<action name="addEmployee" class="employeeAction" method="addEmployee">
 			<interceptor-ref name="exception" />
 			<interceptor-ref name="i18n" />
 			<interceptor-ref name="fileUpload">
 				<param name="allowedTypes">image/png,image/gif,image/jpeg</param>
 			</interceptor-ref>
-			<result name="success" type="redirect">/index.jsp</result>
+			<result name="success" type="redirect">/employee.jsp</result>
 			<result name="input">/add.jsp</result>
 		</action>
 		<action name="editEmployee" class="employeeAction" method="editEmployee">
@@ -26,11 +33,11 @@
 			<interceptor-ref name="fileUpload">
 				<param name="allowedTypes">image/png,image/gif,image/jpeg</param>
 			</interceptor-ref>
-			<result name="success" type="redirect">/index.jsp</result>
+			<result name="success" type="redirect">/employee.jsp</result>
 			<result name="input">/edit.jsp</result>
 		</action>
 		<action name="deleteEmployee" class="employeeAction" method="deleteEmployee">
-			<result name="success" type="redirect">/index.jsp</result>
+			<result name="success" type="redirect">/employee.jsp</result>
 		</action>
 		<action name="listEmployees" class="employeeAction" method="listEmployees">
 			<result name="success">/list.jsp</result>
