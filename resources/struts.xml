@@ -21,6 +21,11 @@
 			<result name="success">/edit.jsp</result>
 		</action>
 		<action name="updateEmployee" class="employeeAction" method="updateEmployee">
+			<interceptor-ref name="exception" />
+			<interceptor-ref name="i18n" />
+			<interceptor-ref name="fileUpload">
+				<param name="allowedTypes">image/png,image/gif,image/jpeg</param>
+			</interceptor-ref>
 			<result name="success" type="redirect">/index.jsp</result>
 			<result name="input">/edit.jsp</result>
 		</action>
