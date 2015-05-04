@@ -13,12 +13,17 @@
 </head>
 <body>
 	<div class="container">
-		<s:form cssClass="form-horizontal" action="addSkillset" method="post" label="Skillset Add">
+		<s:form cssClass="form-horizontal" action="addSkillset" method="post"
+			label="Skillset Add">
 			<s:textfield name="technology" label="Technology" />
 			<s:textfield name="experiencedYears" label="Experienced Years" />
 			<sj:datepicker name="dateInput" displayFormat="dd-mm-yy"
 				changeMonth="true" changeYear="true" label="Recent Working" />
-			<s:submit cssClass="btn btn-primary" value="Add Skillset" />
+			<s:div cssClass="form-group">
+				<s:div cssClass="col-sm-offset-3 col-md-9">
+					<s:submit cssClass="btn btn-primary" value="Add Skillset" />
+				</s:div>
+			</s:div>
 		</s:form>
 	</div>
 </body>

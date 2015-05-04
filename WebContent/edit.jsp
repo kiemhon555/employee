@@ -24,7 +24,11 @@
 					<td colspan="2"><img alt=""
 						src="<s:property value="imageUrl" />" /></td>
 				</tr>
-				<s:submit cssClass="btn btn-primary" value="Update Employee" />
+				<s:div cssClass="form-group">
+					<s:div cssClass="col-sm-offset-3 col-md-9">
+						<s:submit cssClass="btn btn-primary" value="Update Employee" />
+					</s:div>
+				</s:div>
 			</s:form>
 			<hr />
 			<h3>Skillsets</h3>

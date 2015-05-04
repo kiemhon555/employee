@@ -21,7 +21,11 @@
 				<s:textfield name="experiencedYears" label="Experienced Years" />
 				<sj:datepicker name="dateInput" displayFormat="dd-mm-yy"
 					changeMonth="true" changeYear="true" label="Recent Working" />
-				<s:submit cssClass="btn btn-primary" value="Update Skillset" />
+				<s:div cssClass="form-group">
+					<s:div cssClass="col-sm-offset-3 col-md-9">
+						<s:submit cssClass="btn btn-primary" value="Update Skillset" />
+					</s:div>
+				</s:div>
 			</s:push>
 		</s:form>
 	</div>

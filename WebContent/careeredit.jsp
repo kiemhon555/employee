@@ -25,7 +25,11 @@
 					changeMonth="true" changeYear="true" label="Started Date" />
 				<sj:datepicker name="endDate" displayFormat="dd-mm-yy"
 					changeMonth="true" changeYear="true" label="Ended Date" />
-				<s:submit cssClass="btn btn-primary" value="Update Career" />
+				<s:div cssClass="form-group">
+					<s:div cssClass="col-sm-offset-3 col-md-9">
+						<s:submit cssClass="btn btn-primary" value="Update Career" />
+					</s:div>
+				</s:div>
 			</s:push>
 		</s:form>
 	</div>

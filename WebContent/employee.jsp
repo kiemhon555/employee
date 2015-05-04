@@ -23,7 +23,7 @@
 			<s:textfield name="searchText" label="Search" />
 			<s:select
 				list="#{'years':'Years','tech':'Technology', 'project':'Project', 'skill':'Skill'}"
-				headerKey="name" headerValue="Name" name="searchIn" />
+				headerKey="name" headerValue="Name" name="searchIn" label="Filter" />
 		</s:form>
 		<s:form cssClass="form-horizontal" action="searchAutocomplete"
 			method="get">

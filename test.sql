@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 29, 2015 at 06:33 AM
+-- Generation Time: May 04, 2015 at 12:02 PM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -60,8 +60,8 @@ CREATE TABLE IF NOT EXISTS `employee` (
   `fullname` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `email` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `phone` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
-  `imageUrl` varchar(255) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  `imageUrl` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `employee`
@@ -82,7 +82,10 @@ INSERT INTO `employee` (`id`, `fullname`, `email`, `phone`, `imageUrl`) VALUES
 (25, 'checked12', 'chk@mail.com.jp', '013579', ''),
 (26, 'new', 'mail@mail.com', '2345', ''),
 (27, 'te', 'h@mail.com', '123', ''),
-(28, 'testImage', 'image@mail.com', '12345', 'images/love-bird.jpg');
+(28, 'testImage', 'image@mail.com', '12345', 'images/love-bird.jpg'),
+(29, 'upload', 'up@mail.com', '0123456', 'images/great-white.jpg'),
+(30, 'end', 'en@gmail.com', '012345', 'images/Black-Dragon.jpg'),
+(31, 'new', 'new@hmail.org', '1234-567-890', NULL);
 
 -- --------------------------------------------------------
 
@@ -154,7 +157,7 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
 -- AUTO_INCREMENT for table `employee`
 --
 ALTER TABLE `employee`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=29;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=32;
 --
 -- AUTO_INCREMENT for table `skillset`
 --

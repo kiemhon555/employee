@@ -13,7 +13,8 @@
 </head>
 <body>
 	<div class="container">
-		<s:form cssClass="form-horizontal" action="addCareer" method="post" label="Career Add">
+		<s:form cssClass="form-horizontal" action="addCareer" method="post"
+			label="Career Add">
 			<s:textfield name="position" label="Position" />
 			<s:textfield name="description" label="Description" />
 			<s:textfield name="project" label="Project" />
@@ -23,7 +24,11 @@
 				changeMonth="true" changeYear="true" label="Started Date" />
 			<sj:datepicker name="endDate" displayFormat="dd-mm-yy"
 				changeMonth="true" changeYear="true" label="Ended Date" />
-			<s:submit cssClass="btn btn-primary" value="Add Career" />
+			<s:div cssClass="form-group">
+				<s:div cssClass="col-sm-offset-3 col-md-9">
+					<s:submit cssClass="btn btn-primary" value="Add Career" />
+				</s:div>
+			</s:div>
 		</s:form>
 	</div>
 </body>
