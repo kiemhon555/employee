@@ -5,7 +5,10 @@
 <struts>
 	<constant name="struts.devMode" value="true" />
 	<constant name="struts.action.excludePattern" value="/rest/?.*" />
-	<constant name="struts.multipart.maxSize" value="1000000" />
+	<constant name="struts.multipart.parser" value="spring" />
+	<bean type="org.apache.struts2.dispatcher.multipart.MultiPartRequest"
+		name="spring" class="employee.util.SpringMultipartParser" scope="default" />
+	<constant name="struts.ui.theme" value="bootstrap" />
 	<package name="test" extends="struts-default">
 
 		<action name="login">
@@ -16,11 +19,6 @@
 		</action>
 
 		<action name="addEmployee" class="employeeAction" method="addEmployee">
-			<interceptor-ref name="exception" />
-			<interceptor-ref name="i18n" />
-			<interceptor-ref name="fileUpload">
-				<param name="allowedTypes">image/png,image/gif,image/jpeg</param>
-			</interceptor-ref>
 			<result name="success" type="redirect">/employee.jsp</result>
 			<result name="input">/add.jsp</result>
 		</action>
@@ -28,11 +26,6 @@
 			<result name="success">/edit.jsp</result>
 		</action>
 		<action name="updateEmployee" class="employeeAction" method="updateEmployee">
-			<interceptor-ref name="exception" />
-			<interceptor-ref name="i18n" />
-			<interceptor-ref name="fileUpload">
-				<param name="allowedTypes">image/png,image/gif,image/jpeg</param>
-			</interceptor-ref>
 			<result name="success" type="redirect">/employee.jsp</result>
 			<result name="input">/edit.jsp</result>
 		</action>

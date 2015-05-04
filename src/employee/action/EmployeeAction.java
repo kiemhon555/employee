@@ -88,8 +88,10 @@ public class EmployeeAction extends ActionSupport implements
 	}
 
 	public String addEmployee() {
-		createFile();
-		employee.setImageUrl("images/" + fileUploadFileName);
+		if (!"".equalsIgnoreCase(fileUploadFileName)) {
+			createFile();
+			employee.setImageUrl("images/" + fileUploadFileName);
+		}
 		employeeManager.addEmployee(employee);
 		return "success";
 	}
@@ -101,8 +103,10 @@ public class EmployeeAction extends ActionSupport implements
 	}
 
 	public String updateEmployee() {
-		createFile();
-		employee.setImageUrl("images/" + fileUploadFileName);
+		if (!"".equalsIgnoreCase(fileUploadFileName)) {
+			createFile();
+			employee.setImageUrl("images/" + fileUploadFileName);
+		}
 		employeeManager.updateEmployee(employee);
 		return "success";
 	}
@@ -125,8 +129,8 @@ public class EmployeeAction extends ActionSupport implements
 		filePath = servletRequest.getSession().getServletContext()
 				.getRealPath("/")
 				+ "images";
-		fileToCreate = new File(filePath, this.fileUploadFileName);
 		try {
+			fileToCreate = new File(filePath, this.fileUploadFileName);
 			FileUtils.copyFile(this.fileUpload, fileToCreate);
 		} catch (IOException e) {
 			e.printStackTrace();
