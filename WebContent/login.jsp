@@ -7,6 +7,12 @@
 <head>
 <meta http-equiv="X-UA-Compatible" content="IE=edge; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script
+	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <title>Login</title>
 <sb:head />
 </head>
@@ -15,16 +21,27 @@
 		<s:if test="%{#parameters.error != null}">
 			<div style="color: red">Invalid User</div>
 		</s:if>
-		<s:form cssClass="form-horizontal" name="loginForm"
-			action="j_spring_security_check" method="post" label="Login">
-			<s:textfield name="username" label="Username:" />
-			<s:password name="password" label="Password:" />
-			<s:div cssClass="form-group">
-				<s:div cssClass="col-sm-offset-3 col-md-9">
-					<s:submit cssClass="btn btn-primary" value="Login" />
-				</s:div>
-			</s:div>
-		</s:form>
+		<form class="form-horizontal" name="loginForm"
+			action="j_spring_security_check" method="post">
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="uname">Username:</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" id="uname" name="username">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="pwd">Password:</label>
+				<div class="col-sm-10">
+					<input type="password" class="form-control" id="pwd"
+						name="password">
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<button type="submit" class="btn btn-primary">Login</button>
+				</div>
+			</div>
+		</form>
 	</div>
 </body>
 </html>

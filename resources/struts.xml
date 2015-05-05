@@ -10,76 +10,84 @@
 		name="spring" class="employee.util.SpringMultipartParser" scope="default" />
 	<constant name="struts.ui.theme" value="bootstrap" />
 	<package name="test" extends="struts-default">
+		<result-types>
+			<result-type name="tiles"
+				class="org.apache.struts2.views.tiles.TilesResult" />
+		</result-types>
 
 		<action name="login">
 			<result>login.jsp</result>
 		</action>
 		<action name="admin">
-			<result>employee.jsp</result>
+			<result type="tiles">baseLayout</result>
 		</action>
 
 		<action name="addEmployee" class="employeeAction" method="addEmployee">
-			<result name="success" type="redirect">/employee.jsp</result>
-			<result name="input">/add.jsp</result>
+			<result name="success" type="redirect">listEmployees</result>
+			<result name="input" type="tiles">employeeAdd</result>
 		</action>
 		<action name="editEmployee" class="employeeAction" method="editEmployee">
-			<result name="success">/edit.jsp</result>
+			<result name="success" type="tiles">employeeEdit</result>
 		</action>
 		<action name="updateEmployee" class="employeeAction" method="updateEmployee">
-			<result name="success" type="redirect">/employee.jsp</result>
-			<result name="input">/edit.jsp</result>
+			<result name="success" type="redirect">listEmployees</result>
+			<result name="input" type="tiles">employeeEdit</result>
 		</action>
 		<action name="deleteEmployee" class="employeeAction" method="deleteEmployee">
-			<result name="success" type="redirect">/employee.jsp</result>
+			<result name="success" type="redirect">listEmployees</result>
 		</action>
-		<action name="listEmployees" class="employeeAction" method="listEmployees">
-			<result name="success">/list.jsp</result>
+		<action name="listEmployees" class="employeeListAction" method="listEmployees">
+			<result name="success" type="tiles">employee</result>
 		</action>
-		<action name="searchEmployee" class="employeeSearchAction"
-			method="searchEmployee">
-			<result name="success">/result.jsp</result>
-		</action>
-		<action name="searchAutocomplete" class="employeeSearchAction"
-			method="searchAutocomplete">
-			<result name="success">/result.jsp</result>
-		</action>
-		<action name="paginationEmployee" class="employeeSearchAction"
+		<action name="paginationEmployee" class="employeeListAction"
 			method="paginationEmployee">
-			<result name="success">/result.jsp</result>
+			<result name="success" type="tiles">employee</result>
+		</action>
+		<action name="searchEmployee" class="employeeListAction"
+			method="searchEmployee">
+			<result name="success" type="tiles">employeeSearch</result>
+		</action>
+		<action name="searchAutocomplete" class="employeeListAction"
+			method="searchAutocomplete">
+			<result name="success" type="tiles">employeeSearch</result>
+		</action>
+		<action name="paginationSearchEmployee" class="employeeListAction"
+			method="paginationSearchEmployee">
+			<result name="success" type="tiles">employeeSearch</result>
 		</action>
 
 		<action name="addPrepareSkillset" class="skillsetAction"
 			method="addPrepareSkillset">
-			<result name="success">/skillsetadd.jsp</result>
+			<result name="success" type="tiles">skillsetAdd</result>
 		</action>
 		<action name="addSkillset" class="skillsetAction" method="addSkillset">
 			<result name="success" type="redirect">editEmployee</result>
-			<result name="input">/skillsetadd.jsp</result>
+			<result name="input" type="tiles">skillsetAdd</result>
 		</action>
 		<action name="updateSkillset" class="skillsetAction" method="updateSkillset">
 			<result name="success" type="redirect">editEmployee</result>
-			<result name="input">/skillsetedit.jsp</result>
+			<result name="input" type="tiles">skillsetEdit</result>
 		</action>
 		<action name="editSkillset" class="skillsetAction" method="editSkillset">
-			<result name="success">/skillsetedit.jsp</result>
+			<result name="success" type="tiles">skillsetEdit</result>
 		</action>
 		<action name="deleteSkillset" class="skillsetAction" method="deleteSkillset">
 			<result name="success" type="redirect">editEmployee</result>
 		</action>
 
 		<action name="addPrepareCareer" class="careerAction" method="addPrepareCareer">
-			<result name="success">/careeradd.jsp</result>
+			<result name="success" type="tiles">careerAdd</result>
 		</action>
 		<action name="addCareer" class="careerAction" method="addCareer">
 			<result name="success" type="redirect">editEmployee</result>
-			<result name="input">/careeradd.jsp</result>
+			<result name="input" type="tiles">careerAdd</result>
 		</action>
 		<action name="updateCareer" class="careerAction" method="updateCareer">
 			<result name="success" type="redirect">editEmployee</result>
-			<result name="input">/careeredit.jsp</result>
+			<result name="input" type="tiles">careerEdit</result>
 		</action>
 		<action name="editCareer" class="careerAction" method="editCareer">
-			<result name="success">/careeredit.jsp</result>
+			<result name="success" type="tiles">careerEdit</result>
 		</action>
 		<action name="deleteCareer" class="careerAction" method="deleteCareer">
 			<result name="success" type="redirect">editEmployee</result>

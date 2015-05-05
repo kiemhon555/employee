@@ -123,4 +123,14 @@ public class EmployeeManagerImpl implements EmployeeManager {
 		return employeeDAO.searchForEmployeeAutocomplete(searchText);
 	}
 
+	@Override
+	public List<Employee> employeePagination(int pageNum, int pageSize) {
+		return employeeDAO.employeePagination(pageNum, pageSize);
+	}
+
+	@Override
+	public List<Integer> employeePaginationCount(int pageSize) {
+		return employeeDAO.employeePaginationCount(pageSize);
+	}
+
 }

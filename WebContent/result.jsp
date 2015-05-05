@@ -45,7 +45,7 @@
 		</table>
 		<br /> <a href="add.jsp">Add New Employee</a> <br /> <br />
 		<s:iterator value="pages" var="page">
-			<s:url id="pageUrl" action="paginationEmployee">
+			<s:url id="pageUrl" action="paginationSearchEmployee">
 				<s:param name="pageNum" value="%{page}" />
 			</s:url>
 			<s:a href="%{pageUrl}">

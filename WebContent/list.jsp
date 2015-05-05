@@ -11,6 +11,7 @@
 </head>
 <body>
 	<div class="container">
+	<h3>List Employees</h3>
 		<table class="table table-hover">
 			<thead>
 				<tr>
@@ -35,7 +36,15 @@
 				</s:iterator>
 			</tbody>
 		</table>
-		<br /> <a href="add.jsp">Add New Employee</a>
+		<br /> <a href="add.jsp">Add New Employee</a><br /> <br />
+		<s:iterator value="pages" var="page">
+			<s:url id="pageUrl" action="paginationEmployee">
+				<s:param name="pageNum" value="%{page}" />
+			</s:url>
+			<s:a href="%{pageUrl}">
+				<s:property />
+			</s:a>
+		</s:iterator>
 	</div>
 </body>
 </html>

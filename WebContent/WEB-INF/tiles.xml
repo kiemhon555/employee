@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+   "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+   "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+
+	<definition name="baseLayout" template="/baseLayout.jsp">
+		<put-attribute name="title" value="Employee Management" />
+		<put-attribute name="header" value="/header.jsp" />
+		<put-attribute name="menu" value="/menu.jsp" />
+		<put-attribute name="body" value="/body.jsp" />
+		<put-attribute name="footer" value="/footer.jsp" />
+	</definition>
+
+	<definition name="employee" extends="baseLayout">
+		<put-attribute name="title" value="Employee List" />
+		<put-attribute name="body" value="/list.jsp" />
+	</definition>
+
+	<definition name="employeeAdd" extends="baseLayout">
+		<put-attribute name="title" value="Employee Add" />
+		<put-attribute name="body" value="/add.jsp" />
+	</definition>
+
+	<definition name="employeeEdit" extends="baseLayout">
+		<put-attribute name="title" value="Employee Edit" />
+		<put-attribute name="body" value="/edit.jsp" />
+	</definition>
+
+	<definition name="employeeSearch" extends="baseLayout">
+		<put-attribute name="title" value="Employee List" />
+		<put-attribute name="body" value="/result.jsp" />
+	</definition>
+
+	<definition name="skillsetAdd" extends="baseLayout">
+		<put-attribute name="title" value="Skillset Add" />
+		<put-attribute name="body" value="/skillsetadd.jsp" />
+	</definition>
+
+	<definition name="skillsetEdit" extends="baseLayout">
+		<put-attribute name="title" value="Skillset Edit" />
+		<put-attribute name="body" value="/skillsetedit.jsp" />
+	</definition>
+
+	<definition name="careerAdd" extends="baseLayout">
+		<put-attribute name="title" value="Career Add" />
+		<put-attribute name="body" value="/careeradd.jsp" />
+	</definition>
+
+	<definition name="careerEdit" extends="baseLayout">
+		<put-attribute name="title" value="Career Edit" />
+		<put-attribute name="body" value="/careeredit.jsp" />
+	</definition>
+
+</tiles-definitions>

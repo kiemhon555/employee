@@ -20,10 +20,11 @@
 				<s:textfield name="email" label="Email" />
 				<s:textfield name="phone" label="Phone" />
 				<s:file name="fileUpload" label="Select Image" />
-				<tr>
-					<td colspan="2"><img alt=""
-						src="<s:property value="imageUrl" />" /></td>
-				</tr>
+				<s:div cssClass="form-group">
+					<s:div cssClass="col-sm-offset-3 col-md-9">
+						<img alt="" src="<s:property value="imageUrl" />" />
+					</s:div>
+				</s:div>
 				<s:div cssClass="form-group">
 					<s:div cssClass="col-sm-offset-3 col-md-9">
 						<s:submit cssClass="btn btn-primary" value="Update Employee" />

@@ -15,6 +15,10 @@ public interface EmployeeDAO {
 
 	Employee findEmployeeById(Integer id);
 
+	List<Employee> employeePagination(int pageNum, int pageSize);
+
+	List<Integer> employeePaginationCount(int pageSize);
+
 	List<Employee> searchForEmployee(String searchText, String searchIn,
 			String sortBy, int pageNum, int pageSize);
 

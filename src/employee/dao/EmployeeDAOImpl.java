@@ -154,4 +154,32 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 		return names;
 	}
 
+	@Override
+	@Transactional
+	public List<Employee> employeePagination(int pageNum, int pageSize) {
+		List<Employee> employees = null;
+		Criteria crit = sessionFactory.getCurrentSession().createCriteria(
+				Employee.class);
+		crit.setFirstResult((pageNum - 1) * pageSize);
+		crit.setMaxResults(pageSize);
+		employees = crit.list();
+		return employees;
+	}
+
+	@Override
+	@Transactional
+	public List<Integer> employeePaginationCount(int pageSize) {
+		List<Integer> pages = new ArrayList<>();
+		Criteria crit = sessionFactory.getCurrentSession().createCriteria(
+				Employee.class);
+		crit.setProjection(Projections.rowCount());
+		Long count = (Long) crit.uniqueResult();
+		double pageCount = (double) count / pageSize;
+
+		for (int i = 0; i < Math.ceil(pageCount); i++) {
+			pages.add(i + 1);
+		}
+		return pages;
+	}
+
 }
