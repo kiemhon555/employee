@@ -131,9 +131,11 @@ public class SpringMultipartParser implements MultiPartRequest {
 				.entrySet()) {
 			String fieldName = fileEntry.getKey();
 			for (MultipartFile file : fileEntry.getValue()) {
-				File temp = File.createTempFile("upload", ".dat");
-				file.transferTo(temp);
-				multiFileMap.add(fieldName, temp);
+				if (!file.isEmpty()) {
+					File temp = File.createTempFile("upload", ".dat");
+					file.transferTo(temp);
+					multiFileMap.add(fieldName, temp);
+				}
 			}
 		}
 	}

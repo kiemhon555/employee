@@ -82,7 +82,7 @@ public class EmployeeAction extends ActionSupport implements
 	}
 
 	public String addEmployee() {
-		if (!"".equalsIgnoreCase(fileUploadFileName)) {
+		if (null != fileUploadFileName) {
 			createFile();
 			employee.setImageUrl("images/" + fileUploadFileName);
 		}
@@ -93,14 +93,16 @@ public class EmployeeAction extends ActionSupport implements
 	@SkipValidation
 	public String editEmployee() {
 		employee = employeeManager.findEmployeeById(employee.getId());
-		System.out.println(employee.getImageUrl());
 		return "success";
 	}
 
 	public String updateEmployee() {
-		if (!"".equalsIgnoreCase(fileUploadFileName)) {
+		String img = employee.getImageUrl();
+		if (null != fileUploadFileName) {
 			createFile();
 			employee.setImageUrl("images/" + fileUploadFileName);
+		} else {
+			employee.setImageUrl(img);
 		}
 		employeeManager.updateEmployee(employee);
 		return "success";
