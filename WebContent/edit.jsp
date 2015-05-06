@@ -13,6 +13,7 @@
 				<img alt="" src="<s:property value="imageUrl" />" />
 			</s:div>
 		</s:div>
+		<s:hidden name="imageUrl" />
 		<s:div cssClass="form-group">
 			<s:div cssClass="col-sm-offset-3 col-md-9">
 				<s:submit cssClass="btn btn-primary" value="Update Employee" />

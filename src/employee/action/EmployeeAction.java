@@ -19,6 +19,10 @@ import employee.entity.Employee;
 public class EmployeeAction extends ActionSupport implements
 		ModelDriven<Employee> {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Employee employee;
 	private EmployeeManager employeeManager;
 
@@ -97,12 +101,9 @@ public class EmployeeAction extends ActionSupport implements
 	}
 
 	public String updateEmployee() {
-		String img = employee.getImageUrl();
 		if (null != fileUploadFileName) {
 			createFile();
 			employee.setImageUrl("images/" + fileUploadFileName);
-		} else {
-			employee.setImageUrl(img);
 		}
 		employeeManager.updateEmployee(employee);
 		return "success";

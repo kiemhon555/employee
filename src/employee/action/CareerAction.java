@@ -14,6 +14,10 @@ import employee.manager.EmployeeManager;
 
 public class CareerAction extends ActionSupport implements ModelDriven<Career> {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Career career;
 	private List<Career> careerList;
 	private EmployeeManager employeeManager;

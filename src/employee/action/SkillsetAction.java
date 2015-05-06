@@ -15,6 +15,10 @@ import employee.entity.Skillset;
 public class SkillsetAction extends ActionSupport implements
 		ModelDriven<Skillset> {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Skillset skillset;
 	private List<Skillset> skillsetList;
 	private EmployeeManager employeeManager;

@@ -46,6 +46,7 @@ public class SkillsetDAOImpl implements SkillsetDAO {
 			sessionFactory.getCurrentSession().delete(skillset);
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	@Transactional
 	public List<Skillset> listSkillsetByEmployee(Integer empId) {

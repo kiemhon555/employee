@@ -45,6 +45,7 @@ public class CareerDAOImpl implements CareerDAO {
 			sessionFactory.getCurrentSession().delete(career);
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	@Transactional
 	public List<Career> listCareerByEmployee(Integer empId) {

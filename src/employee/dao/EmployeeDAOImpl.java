@@ -6,12 +6,8 @@ import java.util.List;
 import org.hibernate.*;
 import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.Order;
-import org.hibernate.criterion.Projection;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
-import org.hibernate.search.FullTextSession;
-import org.hibernate.search.Search;
-import org.hibernate.search.query.dsl.QueryBuilder;
 import org.hibernate.transform.DistinctRootEntityResultTransformer;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -37,6 +33,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 		return id;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	@Transactional
 	public List<Employee> listEmployee() {
@@ -107,6 +104,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 		return crit;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	@Transactional
 	public List<Employee> searchForEmployee(String searchText, String searchIn,
@@ -142,6 +140,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 		return pages;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	@Transactional
 	public List<String> searchForEmployeeAutocomplete(String searchText) {
@@ -154,6 +153,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 		return names;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	@Transactional
 	public List<Employee> employeePagination(int pageNum, int pageSize) {
