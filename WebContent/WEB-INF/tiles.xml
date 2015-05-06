@@ -30,7 +30,12 @@
 	</definition>
 
 	<definition name="employeeSearch" extends="baseLayout">
-		<put-attribute name="title" value="Employee List" />
+		<put-attribute name="title" value="Employee Search" />
+		<put-attribute name="body" value="/search.jsp" />
+	</definition>
+	
+	<definition name="employeeResult" extends="baseLayout">
+		<put-attribute name="title" value="Employee Search" />
 		<put-attribute name="body" value="/result.jsp" />
 	</definition>
 

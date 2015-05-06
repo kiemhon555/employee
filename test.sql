@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 04, 2015 at 12:02 PM
+-- Generation Time: May 06, 2015 at 05:37 AM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `career` (
   `startTime` date NOT NULL,
   `endTime` date NOT NULL,
   `employee_id` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `career`
@@ -47,7 +47,9 @@ INSERT INTO `career` (`id`, `job_position`, `work_description`, `worked_project`
 (2, 'main coder', 'payment details', 'OnlineShoppingCart', 'ASP.NET', '.NET', '2014-11-30', '2014-12-30', 3),
 (4, 'support', 'Help', 'e-Administration', 'J2EE', 'Java', '2015-03-09', '2015-04-09', 4),
 (10, 'Coder', 'Main', 'PJ', 'Java', 'Java', '2013-08-21', '2013-09-21', 18),
-(12, 'unknown', 'sure', 'non', 'html', 'web', '2012-01-11', '2012-02-21', 24);
+(12, 'unknown', 'sure', 'non', 'html', 'web', '2012-01-11', '2012-02-21', 24),
+(14, 'Designer', 'Web Design & Code', 'Cake Shop', 'HTML/CSS', 'Web', '2012-03-15', '2012-04-17', 5),
+(15, 'Tester', 'Test Website', 'e-Administrator', 'JavaEE', 'Java', '2015-03-09', '2015-04-09', 32);
 
 -- --------------------------------------------------------
 
@@ -61,7 +63,7 @@ CREATE TABLE IF NOT EXISTS `employee` (
   `email` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `phone` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
   `imageUrl` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `employee`
@@ -85,7 +87,9 @@ INSERT INTO `employee` (`id`, `fullname`, `email`, `phone`, `imageUrl`) VALUES
 (28, 'testImage', 'image@mail.com', '12345', 'images/love-bird.jpg'),
 (29, 'upload', 'up@mail.com', '0123456', 'images/great-white.jpg'),
 (30, 'end', 'en@gmail.com', '012345', 'images/Black-Dragon.jpg'),
-(31, 'new', 'new@hmail.org', '1234-567-890', NULL);
+(31, 'new', 'new@hmail.org', '1234-567-890', NULL),
+(32, 'Final Fantasy', 'ff@mail.com.jp', '0123-0567-90', 'images/square-enix-logo.jpg'),
+(33, 'Dragon Quest', 'dq@nihonmail.jp', '0123-456-789', 'images/Slime_(Dragon_Quest).jpg');
 
 -- --------------------------------------------------------
 
@@ -99,7 +103,7 @@ CREATE TABLE IF NOT EXISTS `skillset` (
   `experiencedYears` int(11) NOT NULL,
   `recentDate` date NOT NULL,
   `employee_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `skillset`
@@ -117,10 +121,12 @@ INSERT INTO `skillset` (`id`, `technology`, `experiencedYears`, `recentDate`, `e
 (28, 'Test', 1, '2014-09-20', 15),
 (29, 'JavaEE', 2, '2015-04-09', 22),
 (31, 'Java Swing', 1, '2013-11-20', 3),
-(37, 'chk', 1, '2015-04-08', 3),
+(37, 'Check', 1, '2015-04-08', 3),
 (38, 'jk', 2, '2015-04-07', 24),
 (39, 'non', 2, '2015-04-01', 24),
-(40, 'test', 0, '2015-04-09', 2);
+(40, 'test', 0, '2015-04-09', 2),
+(42, 'Android', 1, '2014-02-12', 5),
+(43, 'XML', 1, '2015-04-15', 32);
 
 --
 -- Indexes for dumped tables
@@ -152,17 +158,17 @@ ALTER TABLE `skillset`
 -- AUTO_INCREMENT for table `career`
 --
 ALTER TABLE `career`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT for table `employee`
 --
 ALTER TABLE `employee`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=32;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=34;
 --
 -- AUTO_INCREMENT for table `skillset`
 --
 ALTER TABLE `skillset`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=41;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=44;
 --
 -- Constraints for dumped tables
 --

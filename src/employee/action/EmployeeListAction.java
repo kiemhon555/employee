@@ -114,6 +114,10 @@ public class EmployeeListAction extends ActionSupport implements
 		return "success";
 	}
 
+	public String searchEmployeeTo() {
+		return "success";
+	}
+
 	public String searchEmployee() {
 		pageNum = 1;
 		pageSize = 2;

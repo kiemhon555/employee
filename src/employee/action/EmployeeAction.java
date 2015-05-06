@@ -76,6 +76,11 @@ public class EmployeeAction extends ActionSupport implements
 		this.fileUploadFileName = fileUploadFileName;
 	}
 
+	@SkipValidation
+	public String addPrepareEmployee() {
+		return "success";
+	}
+
 	public String addEmployee() {
 		if (!"".equalsIgnoreCase(fileUploadFileName)) {
 			createFile();
@@ -88,6 +93,7 @@ public class EmployeeAction extends ActionSupport implements
 	@SkipValidation
 	public String editEmployee() {
 		employee = employeeManager.findEmployeeById(employee.getId());
+		System.out.println(employee.getImageUrl());
 		return "success";
 	}
 

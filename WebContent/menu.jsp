@@ -1,22 +1,18 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
-<%@ taglib prefix="sb" uri="/struts-bootstrap-tags"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-<script src="js/jquery.1.10.2.min.js"></script>
 <script src="js/jquery.autocomplete.min.js"></script>
 <script src="js/autocompleter.js"></script>
 <link href="css/main.css" rel="stylesheet">
-<sb:head />
-</head>
-<body>
-	<s:form cssClass="form-horizontal" action="searchAutocomplete"
-		method="get">
-		<s:textfield name="searchText" id="search" label="Autocomplete" />
-	</s:form>
-</body>
-</html>
+<ul class="nav nav-pills">
+	<li><a href="admin">Home</a></li>
+	<li class="dropdown"><a class="dropdown-toggle"
+		data-toggle="dropdown" href="#">Employee<span class="caret"></span></a>
+		<ul class="dropdown-menu">
+			<li><a href="listEmployees">List</a></li>
+			<li><a href="addPrepareEmployee">Add</a></li>
+			<li><a href="searchEmployeeTo">Search</a></li>
+		</ul></li>
+	<li><s:form cssClass="form-horizontal" action="searchAutocomplete"
+			method="get">
+			<s:textfield name="searchText" id="search" />
+		</s:form></li>
+</ul>
