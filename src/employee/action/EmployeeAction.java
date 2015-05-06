@@ -1,11 +1,11 @@
 package employee.action;
 
 import java.io.File;
-import java.io.IOException;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.commons.io.FileUtils;
 import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.interceptor.validation.SkipValidation;
 
@@ -88,7 +88,6 @@ public class EmployeeAction extends ActionSupport implements
 	public String addEmployee() {
 		if (null != fileUploadFileName) {
 			createFile();
-			employee.setImageUrl("images/" + fileUploadFileName);
 		}
 		employeeManager.addEmployee(employee);
 		return "success";
@@ -97,13 +96,15 @@ public class EmployeeAction extends ActionSupport implements
 	@SkipValidation
 	public String editEmployee() {
 		employee = employeeManager.findEmployeeById(employee.getId());
+		if (null != employee.getImage()) {
+			loadFile();
+		}
 		return "success";
 	}
 
 	public String updateEmployee() {
 		if (null != fileUploadFileName) {
 			createFile();
-			employee.setImageUrl("images/" + fileUploadFileName);
 		}
 		employeeManager.updateEmployee(employee);
 		return "success";
@@ -116,16 +117,49 @@ public class EmployeeAction extends ActionSupport implements
 	}
 
 	private void createFile() {
+		byte[] bFile = new byte[(int) fileUpload.length()];
+		try {
+			FileInputStream fileInputStream = new FileInputStream(fileUpload);
+			fileInputStream.read(bFile);
+			fileInputStream.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		employee.setImage(bFile);
+		employee.setContentType(fileUploadContentType);
+		employee.setFileName(fileUploadFileName);
+	}
+
+	private void loadFile() {
 		servletRequest = (HttpServletRequest) ActionContext.getContext().get(
 				ServletActionContext.HTTP_REQUEST);
 		filePath = servletRequest.getSession().getServletContext()
 				.getRealPath("/")
 				+ "images";
+		fileToCreate = new File(filePath, employee.getFileName());
 		try {
-			fileToCreate = new File(filePath, this.fileUploadFileName);
-			FileUtils.copyFile(this.fileUpload, fileToCreate);
-		} catch (IOException e) {
+			FileOutputStream fileOutputStream = new FileOutputStream(
+					fileToCreate);
+			fileOutputStream.write(employee.getImage());
+			fileOutputStream.close();
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+
+	public byte[] getImageInBytes() {
+		if (null == employee.getImage()) {
+			return new byte[0];
+		}
+		return employee.getImage();
+	}
+
+	public String getImageContentType() {
+		return employee.getContentType();
+	}
+
+	@Override
+	public String execute() {
+		return "input";
 	}
 }

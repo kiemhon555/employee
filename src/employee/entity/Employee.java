@@ -8,7 +8,9 @@ public class Employee {
 	private String fullname;
 	private String email;
 	private String phone;
-	private String imageUrl;
+	private byte[] image;
+	private String contentType;
+	private String fileName;
 	private Set<Skillset> skillsetList;
 	private Set<Career> careerList;
 
@@ -44,12 +46,28 @@ public class Employee {
 		this.phone = phone;
 	}
 
-	public String getImageUrl() {
-		return imageUrl;
+	public byte[] getImage() {
+		return image;
 	}
 
-	public void setImageUrl(String imageUrl) {
-		this.imageUrl = imageUrl;
+	public void setImage(byte[] image) {
+		this.image = image;
+	}
+
+	public String getContentType() {
+		return contentType;
+	}
+
+	public void setContentType(String contentType) {
+		this.contentType = contentType;
+	}
+
+	public String getFileName() {
+		return fileName;
+	}
+
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
 	}
 
 	public Set<Skillset> getSkillsetList() {
