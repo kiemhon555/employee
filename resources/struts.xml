@@ -23,9 +23,8 @@
 			<result type="tiles">baseLayout</result>
 		</action>
 
-		<action name="imageAction" class="employee.action.EmployeeAction">
-			<result name="input" type="imageResult">
-			</result>
+		<action name="ImageAction" class="employeeAction">
+			<result name="success" type="imageResult" />
 		</action>
 		<action name="addPrepareEmployee" class="employeeAction"
 			method="addPrepareEmployee">

@@ -11,7 +11,7 @@
 		<s:if test="%{image != null}">
 			<s:div cssClass="form-group">
 				<s:div cssClass="col-sm-offset-3 col-md-9">
-					<img alt="" src="images/<s:property value="fileName" />" />
+					<img src="<s:url action='ImageAction' />" />
 				</s:div>
 			</s:div>
 		</s:if>

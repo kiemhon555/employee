@@ -24,6 +24,7 @@ public class ImageBytesResult implements Result {
 		response.setContentType(action.getImageContentType());
 		response.getOutputStream().write(action.getImageInBytes());
 		response.getOutputStream().flush();
+		response.getOutputStream().close();
 	}
 
 }

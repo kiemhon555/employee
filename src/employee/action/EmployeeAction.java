@@ -2,14 +2,8 @@ package employee.action;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
-
-import javax.servlet.http.HttpServletRequest;
-
-import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.interceptor.validation.SkipValidation;
 
-import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
@@ -29,11 +23,6 @@ public class EmployeeAction extends ActionSupport implements
 	private File fileUpload;
 	private String fileUploadContentType;
 	private String fileUploadFileName;
-
-	private String filePath;
-	private File fileToCreate;
-
-	private HttpServletRequest servletRequest;
 
 	@Override
 	public Employee getModel() {
@@ -93,16 +82,24 @@ public class EmployeeAction extends ActionSupport implements
 		return "success";
 	}
 
+	private static byte[] imageData;
+	private static String imageName, imageType;
+
 	@SkipValidation
 	public String editEmployee() {
 		employee = employeeManager.findEmployeeById(employee.getId());
 		if (null != employee.getImage()) {
-			loadFile();
+			imageData = employee.getImage();
+			imageName = employee.getFileName();
+			imageType = employee.getContentType();
 		}
 		return "success";
 	}
 
 	public String updateEmployee() {
+		employee.setImage(imageData);
+		employee.setFileName(imageName);
+		employee.setContentType(imageType);
 		if (null != fileUploadFileName) {
 			createFile();
 		}
@@ -130,36 +127,19 @@ public class EmployeeAction extends ActionSupport implements
 		employee.setFileName(fileUploadFileName);
 	}
 
-	private void loadFile() {
-		servletRequest = (HttpServletRequest) ActionContext.getContext().get(
-				ServletActionContext.HTTP_REQUEST);
-		filePath = servletRequest.getSession().getServletContext()
-				.getRealPath("/")
-				+ "images";
-		fileToCreate = new File(filePath, employee.getFileName());
-		try {
-			FileOutputStream fileOutputStream = new FileOutputStream(
-					fileToCreate);
-			fileOutputStream.write(employee.getImage());
-			fileOutputStream.close();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
 	public byte[] getImageInBytes() {
-		if (null == employee.getImage()) {
+		if (null == imageData) {
 			return new byte[0];
 		}
-		return employee.getImage();
+		return imageData;
 	}
 
 	public String getImageContentType() {
-		return employee.getContentType();
+		return imageType;
 	}
 
-	@Override
+	@SkipValidation
 	public String execute() {
-		return "input";
+		return "success";
 	}
 }
