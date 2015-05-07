@@ -26,11 +26,13 @@
 </table>
 <br />
 <br />
-<s:iterator value="pages" var="page">
-	<s:url id="pageUrl" action="paginationEmployee">
-		<s:param name="pageNum" value="%{page}" />
-	</s:url>
-	<s:a href="%{pageUrl}">
-		<s:property />
-	</s:a>
-</s:iterator>
+<ul class="pagination">
+	<s:iterator value="pages" var="page">
+		<s:url id="pageUrl" action="paginationEmployee">
+			<s:param name="pageNum" value="%{page}" />
+		</s:url>
+		<li><s:a href="%{pageUrl}">
+				<s:property />
+			</s:a></li>
+	</s:iterator>
+</ul>
