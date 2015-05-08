@@ -5,6 +5,7 @@
 <struts>
 	<constant name="struts.devMode" value="true" />
 	<constant name="struts.action.excludePattern" value="/rest/?.*" />
+	<constant name="struts.enable.SlashesInActionNames" value="true" />
 	<constant name="struts.multipart.parser" value="spring" />
 	<bean type="org.apache.struts2.dispatcher.multipart.MultiPartRequest"
 		name="spring" class="employee.util.SpringMultipartParser" scope="default" />
@@ -19,90 +20,98 @@
 		<action name="login">
 			<result>login.jsp</result>
 		</action>
-		<action name="admin">
+		<action name="admin/welcome">
 			<result type="tiles">baseLayout</result>
 		</action>
 
 		<action name="ImageAction" class="employeeAction">
 			<result name="success" type="imageResult" />
 		</action>
-		<action name="addPrepareEmployee" class="employeeAction"
+		<action name="admin/addPrepareEmployee" class="employeeAction"
 			method="addPrepareEmployee">
 			<result name="success" type="tiles">employeeAdd</result>
 		</action>
 
-		<action name="addEmployee" class="employeeAction" method="addEmployee">
+		<action name="admin/addEmployee" class="employeeAction" method="addEmployee">
 			<result name="success" type="redirect">listEmployees</result>
 			<result name="input" type="tiles">employeeAdd</result>
 		</action>
-		<action name="editEmployee" class="employeeAction" method="editEmployee">
+		<action name="admin/editEmployee" class="employeeAction"
+			method="editEmployee">
 			<result name="success" type="tiles">employeeEdit</result>
 		</action>
-		<action name="updateEmployee" class="employeeAction" method="updateEmployee">
+		<action name="admin/updateEmployee" class="employeeAction"
+			method="updateEmployee">
 			<result name="success" type="redirect">editEmployee</result>
 			<result name="input" type="tiles">employeeEdit</result>
 		</action>
-		<action name="deleteEmployee" class="employeeAction" method="deleteEmployee">
+		<action name="admin/deleteEmployee" class="employeeAction"
+			method="deleteEmployee">
 			<result name="success" type="redirect">listEmployees</result>
 		</action>
-		<action name="listEmployees" class="employeeListAction" method="listEmployees">
+		<action name="admin/listEmployees" class="employeeListAction"
+			method="listEmployees">
 			<result name="success" type="tiles">employee</result>
 		</action>
-		<action name="paginationEmployee" class="employeeListAction"
+		<action name="admin/paginationEmployee" class="employeeListAction"
 			method="paginationEmployee">
 			<result name="success" type="tiles">employee</result>
 		</action>
-		<action name="searchEmployeeTo" class="employeeListAction"
+		<action name="admin/searchEmployeeTo" class="employeeListAction"
 			method="searchEmployeeTo">
 			<result name="success" type="tiles">employeeSearch</result>
 		</action>
-		<action name="searchEmployee" class="employeeListAction"
+		<action name="admin/searchEmployee" class="employeeListAction"
 			method="searchEmployee">
 			<result name="success" type="tiles">employeeResult</result>
 		</action>
-		<action name="searchAutocomplete" class="employeeListAction"
+		<action name="admin/searchAutocomplete" class="employeeListAction"
 			method="searchAutocomplete">
 			<result name="success" type="tiles">employeeResult</result>
 		</action>
-		<action name="paginationSearchEmployee" class="employeeListAction"
+		<action name="admin/paginationSearchEmployee" class="employeeListAction"
 			method="paginationSearchEmployee">
 			<result name="success" type="tiles">employeeResult</result>
 		</action>
 
-		<action name="addPrepareSkillset" class="skillsetAction"
+		<action name="admin/addPrepareSkillset" class="skillsetAction"
 			method="addPrepareSkillset">
 			<result name="success" type="tiles">skillsetAdd</result>
 		</action>
-		<action name="addSkillset" class="skillsetAction" method="addSkillset">
+		<action name="admin/addSkillset" class="skillsetAction" method="addSkillset">
 			<result name="success" type="redirect">editEmployee</result>
 			<result name="input" type="tiles">skillsetAdd</result>
 		</action>
-		<action name="updateSkillset" class="skillsetAction" method="updateSkillset">
+		<action name="admin/updateSkillset" class="skillsetAction"
+			method="updateSkillset">
 			<result name="success" type="redirect">editEmployee</result>
 			<result name="input" type="tiles">skillsetEdit</result>
 		</action>
-		<action name="editSkillset" class="skillsetAction" method="editSkillset">
+		<action name="admin/editSkillset" class="skillsetAction"
+			method="editSkillset">
 			<result name="success" type="tiles">skillsetEdit</result>
 		</action>
-		<action name="deleteSkillset" class="skillsetAction" method="deleteSkillset">
+		<action name="admin/deleteSkillset" class="skillsetAction"
+			method="deleteSkillset">
 			<result name="success" type="redirect">editEmployee</result>
 		</action>
 
-		<action name="addPrepareCareer" class="careerAction" method="addPrepareCareer">
+		<action name="admin/addPrepareCareer" class="careerAction"
+			method="addPrepareCareer">
 			<result name="success" type="tiles">careerAdd</result>
 		</action>
-		<action name="addCareer" class="careerAction" method="addCareer">
+		<action name="admin/addCareer" class="careerAction" method="addCareer">
 			<result name="success" type="redirect">editEmployee</result>
 			<result name="input" type="tiles">careerAdd</result>
 		</action>
-		<action name="updateCareer" class="careerAction" method="updateCareer">
+		<action name="admin/updateCareer" class="careerAction" method="updateCareer">
 			<result name="success" type="redirect">editEmployee</result>
 			<result name="input" type="tiles">careerEdit</result>
 		</action>
-		<action name="editCareer" class="careerAction" method="editCareer">
+		<action name="admin/editCareer" class="careerAction" method="editCareer">
 			<result name="success" type="tiles">careerEdit</result>
 		</action>
-		<action name="deleteCareer" class="careerAction" method="deleteCareer">
+		<action name="admin/deleteCareer" class="careerAction" method="deleteCareer">
 			<result name="success" type="redirect">editEmployee</result>
 		</action>
 	</package>
