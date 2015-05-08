@@ -1,5 +1,6 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
-<s:form cssClass="form-horizontal" action="searchEmployee" method="get">
+<s:form cssClass="form-horizontal" action="admin/searchEmployee"
+	method="get">
 	<s:textfield name="searchText" label="Search" />
 	<s:select
 		list="#{'years':'Years','tech':'Technology', 'project':'Project', 'skill':'Skill'}"

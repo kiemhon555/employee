@@ -33,7 +33,7 @@
 		</action>
 
 		<action name="admin/addEmployee" class="employeeAction" method="addEmployee">
-			<result name="success" type="redirect">listEmployees</result>
+			<result name="success" type="redirect">admin/listEmployees</result>
 			<result name="input" type="tiles">employeeAdd</result>
 		</action>
 		<action name="admin/editEmployee" class="employeeAction"
@@ -42,12 +42,12 @@
 		</action>
 		<action name="admin/updateEmployee" class="employeeAction"
 			method="updateEmployee">
-			<result name="success" type="redirect">editEmployee</result>
+			<result name="success" type="redirect">admin/editEmployee</result>
 			<result name="input" type="tiles">employeeEdit</result>
 		</action>
 		<action name="admin/deleteEmployee" class="employeeAction"
 			method="deleteEmployee">
-			<result name="success" type="redirect">listEmployees</result>
+			<result name="success" type="redirect">admin/listEmployees</result>
 		</action>
 		<action name="admin/listEmployees" class="employeeListAction"
 			method="listEmployees">
@@ -79,12 +79,12 @@
 			<result name="success" type="tiles">skillsetAdd</result>
 		</action>
 		<action name="admin/addSkillset" class="skillsetAction" method="addSkillset">
-			<result name="success" type="redirect">editEmployee</result>
+			<result name="success" type="redirect">admin/editEmployee</result>
 			<result name="input" type="tiles">skillsetAdd</result>
 		</action>
 		<action name="admin/updateSkillset" class="skillsetAction"
 			method="updateSkillset">
-			<result name="success" type="redirect">editEmployee</result>
+			<result name="success" type="redirect">admin/editEmployee</result>
 			<result name="input" type="tiles">skillsetEdit</result>
 		</action>
 		<action name="admin/editSkillset" class="skillsetAction"
@@ -93,7 +93,7 @@
 		</action>
 		<action name="admin/deleteSkillset" class="skillsetAction"
 			method="deleteSkillset">
-			<result name="success" type="redirect">editEmployee</result>
+			<result name="success" type="redirect">admin/editEmployee</result>
 		</action>
 
 		<action name="admin/addPrepareCareer" class="careerAction"
@@ -101,18 +101,18 @@
 			<result name="success" type="tiles">careerAdd</result>
 		</action>
 		<action name="admin/addCareer" class="careerAction" method="addCareer">
-			<result name="success" type="redirect">editEmployee</result>
+			<result name="success" type="redirect">admin/editEmployee</result>
 			<result name="input" type="tiles">careerAdd</result>
 		</action>
 		<action name="admin/updateCareer" class="careerAction" method="updateCareer">
-			<result name="success" type="redirect">editEmployee</result>
+			<result name="success" type="redirect">admin/editEmployee</result>
 			<result name="input" type="tiles">careerEdit</result>
 		</action>
 		<action name="admin/editCareer" class="careerAction" method="editCareer">
 			<result name="success" type="tiles">careerEdit</result>
 		</action>
 		<action name="admin/deleteCareer" class="careerAction" method="deleteCareer">
-			<result name="success" type="redirect">editEmployee</result>
+			<result name="success" type="redirect">admin/editEmployee</result>
 		</action>
 	</package>
 </struts>

@@ -1,7 +1,7 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="sj" uri="/struts-jquery-tags"%>
-<s:form cssClass="form-horizontal" action="addCareer" method="post"
-	label="Career Add">
+<s:form cssClass="form-horizontal" action="admin/addCareer"
+	method="post" label="Career Add">
 	<s:textfield name="position" label="Position" />
 	<s:textfield name="description" label="Description" />
 	<s:textfield name="project" label="Project" />
@@ -16,4 +16,6 @@
 			<s:submit cssClass="btn btn-primary" value="Add Career" />
 		</s:div>
 	</s:div>
+	<s:hidden name="%{#attr._csrf.parameterName}"
+		value="%{#attr._csrf.token}" />
 </s:form>

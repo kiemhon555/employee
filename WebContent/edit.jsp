@@ -1,7 +1,7 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <s:push value="employee">
 	<h3>Information</h3>
-	<s:form cssClass="form-horizontal" action="updateEmployee"
+	<s:form cssClass="form-horizontal" action="admin/updateEmployee"
 		method="post" enctype="multipart/form-data">
 		<s:hidden name="id" />
 		<s:textfield name="fullname" label="Fullname" />
@@ -20,6 +20,8 @@
 				<s:submit cssClass="btn btn-primary" value="Update Employee" />
 			</s:div>
 		</s:div>
+		<s:hidden name="%{#attr._csrf.parameterName}"
+			value="%{#attr._csrf.token}" />
 	</s:form>
 	<hr />
 	<h3>Skillsets</h3>
@@ -37,16 +39,16 @@
 					<td><s:property value="technology" /></td>
 					<td><s:property value="experiencedYears" /></td>
 					<td><s:date name="recentDate" format="dd-MM-yyyy" /></td>
-					<td><s:url id="editUrl" action="editSkillset">
+					<td><s:url id="editUrl" action="admin/editSkillset">
 							<s:param name="id" value="%{id}" />
 						</s:url> <s:a href="%{editUrl}">Edit</s:a></td>
-					<td><s:url id="deleteUrl" action="deleteSkillset">
+					<td><s:url id="deleteUrl" action="admin/deleteSkillset">
 							<s:param name="id" value="%{id}" />
 						</s:url> <s:a href="%{deleteUrl}">Delete</s:a></td>
 				</tr>
 			</s:iterator>
 			<tr>
-				<td><s:url id="addUrl" action="addPrepareSkillset">
+				<td><s:url id="addUrl" action="admin/addPrepareSkillset">
 						<s:param name="empId" value="%{id}" />
 					</s:url> <s:a href="%{addUrl}">Add New Skillset</s:a></td>
 			</tr>
@@ -76,16 +78,16 @@
 					<td><s:property value="platform" /></td>
 					<td><s:date name="startTime" format="dd-MM-yyyy" /></td>
 					<td><s:date name="endTime" format="dd-MM-yyyy" /></td>
-					<td><s:url id="editUrl" action="editCareer">
+					<td><s:url id="editUrl" action="admin/editCareer">
 							<s:param name="id" value="%{id}" />
 						</s:url> <s:a href="%{editUrl}">Edit</s:a></td>
-					<td><s:url id="deleteUrl" action="deleteCareer">
+					<td><s:url id="deleteUrl" action="admin/deleteCareer">
 							<s:param name="id" value="%{id}" />
 						</s:url> <s:a href="%{deleteUrl}">Delete</s:a></td>
 				</tr>
 			</s:iterator>
 			<tr>
-				<td><s:url id="addUrl" action="addPrepareCareer">
+				<td><s:url id="addUrl" action="admin/addPrepareCareer">
 						<s:param name="empId" value="%{id}" />
 					</s:url> <s:a href="%{addUrl}">Add New Career</s:a></td>
 			</tr>

@@ -1,5 +1,5 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
-<s:form cssClass="form-horizontal" action="searchEmployee" method="get">
+<s:form cssClass="form-horizontal" action="admin/searchEmployee" method="get">
 	<s:select label="Sort"
 		list="#{'nameAsc':'Name A->Z','nameDesc':'Name Z->A'}" headerKey="-1"
 		headerValue="Select Filter" name="sortBy" onchange="submit()" />
@@ -18,10 +18,10 @@
 				<td><s:property value="fullname" /></td>
 				<td><s:property value="email" /></td>
 				<td><s:property value="phone" /></td>
-				<td><s:url id="editUrl" action="editEmployee">
+				<td><s:url id="editUrl" action="admin/editEmployee">
 						<s:param name="id" value="%{id}" />
 					</s:url> <s:a href="%{editUrl}">Edit</s:a></td>
-				<td><s:url id="deleteUrl" action="deleteEmployee">
+				<td><s:url id="deleteUrl" action="admin/deleteEmployee">
 						<s:param name="id" value="%{id}" />
 					</s:url> <s:a href="%{deleteUrl}">Delete</s:a></td>
 			</tr>
@@ -32,7 +32,7 @@
 <br />
 <ul class="pagination">
 	<s:iterator value="pages" var="page">
-		<s:url id="pageUrl" action="paginationSearchEmployee">
+		<s:url id="pageUrl" action="admin/paginationSearchEmployee">
 			<s:param name="pageNum" value="%{page}" />
 		</s:url>
 		<li><s:a href="%{pageUrl}">

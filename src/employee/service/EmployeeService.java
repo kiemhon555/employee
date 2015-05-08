@@ -12,7 +12,7 @@ import javax.ws.rs.core.Response;
 
 import employee.dao.EmployeeDAO;
 
-@Path("/service")
+@Path("/searchAutocomplete")
 public class EmployeeService {
 
 	private EmployeeDAO employeeDAO;
@@ -26,7 +26,6 @@ public class EmployeeService {
 	}
 
 	@GET
-	@Path("/searchAutocomplete")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response searchAuto(@QueryParam("searchText") String searchText) {
 		List<String> list = employeeDAO
