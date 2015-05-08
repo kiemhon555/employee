@@ -12,12 +12,12 @@
 			changeMonth="true" changeYear="true" label="Started Date" />
 		<sj:datepicker name="endDate" displayFormat="dd-mm-yy"
 			changeMonth="true" changeYear="true" label="Ended Date" />
+		<s:hidden name="employee.id" />
 		<s:div cssClass="form-group">
 			<s:div cssClass="col-sm-offset-3 col-md-9">
 				<s:submit cssClass="btn btn-primary" value="Update Career" />
 			</s:div>
 		</s:div>
-		<s:hidden name="employee.id" />
 	</s:push>
 	<s:hidden name="%{#attr._csrf.parameterName}"
 		value="%{#attr._csrf.token}" />

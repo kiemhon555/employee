@@ -1,6 +1,6 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
-<s:form cssClass="form-horizontal" action="admin/addEmployee" method="post"
-	enctype="multipart/form-data">
+<s:form cssClass="form-horizontal" action="admin/addEmployee"
+	method="post" enctype="multipart/form-data">
 	<s:textfield name="fullname" label="Fullname" />
 	<s:textfield name="email" label="Email" />
 	<s:textfield name="phone" label="Phone" />
