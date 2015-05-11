@@ -12,6 +12,10 @@ http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
 http://www.springframework.org/schema/mvc 
 http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
 
+	<bean id="unitTest" class="employee.util.UnitTest">
+		<property name="employeeDAO" ref="employeeDAO" />
+	</bean>
+
 	<bean id="employeeManager" class="employee.manager.EmployeeManagerImpl">
 		<property name="employeeDAO">
 			<ref bean="employeeDAO" />

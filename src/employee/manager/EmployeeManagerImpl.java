@@ -2,12 +2,8 @@ package employee.manager;
 
 import java.util.List;
 
-import employee.dao.CareerDAO;
-import employee.dao.EmployeeDAO;
-import employee.dao.SkillsetDAO;
-import employee.entity.Career;
-import employee.entity.Employee;
-import employee.entity.Skillset;
+import employee.dao.*;
+import employee.entity.*;
 
 public class EmployeeManagerImpl implements EmployeeManager {
 	private EmployeeDAO employeeDAO;
